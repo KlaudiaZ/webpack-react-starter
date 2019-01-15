@@ -13,6 +13,7 @@ module.exports = env => {
 	return merge([
 		{
 			entry: ["@babel/polyfill", APP_DIR],
+			devtool: 'inline-source-map',
 			module: {
 				rules: [
 					{
