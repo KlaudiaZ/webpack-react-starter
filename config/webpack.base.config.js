@@ -13,7 +13,7 @@ module.exports = env => {
 	return merge([
 		{
 			entry: ["@babel/polyfill", APP_DIR],
-			devtool: 'inline-source-map',
+			devtool: "inline-source-map",
 			module: {
 				rules: [
 					{
@@ -24,7 +24,15 @@ module.exports = env => {
 						}
 					},
 					{
+						test: /\.css$/,
+						exclude: /node_modules/,
+						use: {
+							loader: "css-loader"
+						}
+					},
+					{
 						test: /\.scss$/,
+						exclude: /node_modules/,
 						use: [
 							PLATFORM === "production"
 								? MiniCssExtractPlugin.loader
