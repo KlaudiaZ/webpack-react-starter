@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import "./bootstrap.css";
 import "./styles.scss";
 
 import { Content } from "./app/Content.jsx";
