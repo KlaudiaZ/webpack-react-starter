@@ -12,7 +12,7 @@ module.exports = env => {
 	const { PLATFORM, VERSION } = env;
 	return merge([
 		{
-			entry: ["@babel/polyfill", APP_DIR],
+			entry: APP_DIR,
 			devtool: "inline-source-map",
 			module: {
 				rules: [
