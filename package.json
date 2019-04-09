@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-starter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An extended and updated starter based on tutorial from the link: https://medium.freecodecamp.org/how-to-combine-webpack-4-and-babel-7-to-create-a-fantastic-react-app-845797e036ff",
   "main": "index.js",
   "scripts": {
