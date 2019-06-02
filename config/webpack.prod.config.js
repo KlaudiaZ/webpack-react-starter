@@ -1,37 +1,6 @@
-const merge = require("webpack-merge");
+const prodConfig = require("@klaudia-z/common-js-config/webpack/webpack.prod.config");
+const path = require("path");
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const Visualizer = require("webpack-visualizer-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+const APP_DIR = path.resolve(__dirname, "../src");
 
-const baseConfig = require("./webpack.base.config");
-
-const prodConfiguration = env => {
-	return merge([
-		{
-			optimization: {
-				runtimeChunk: "single",
-				splitChunks: {
-					cacheGroups: {
-						vendor: {
-							test: /[\\/]node_modules[\\/]/,
-							name: "vendors",
-							chunks: "all"
-						}
-					}
-				},
-				minimizer: [new TerserPlugin()]
-			},
-			plugins: [
-				new MiniCssExtractPlugin(),
-				new OptimizeCssAssetsPlugin(),
-				new Visualizer({ filename: "./statistics.html" })
-			]
-		}
-	]);
-};
-
-module.exports = env => {
-	return merge(baseConfig(env), prodConfiguration(env));
-};
+module.exports = env => prodConfig(env, APP_DIR);
